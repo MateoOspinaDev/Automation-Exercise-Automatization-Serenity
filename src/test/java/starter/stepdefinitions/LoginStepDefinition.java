@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import jdk.javadoc.internal.doclets.toolkit.OverviewElement;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import starter.builders.LoginBuilderTask;
 import starter.navigation.NavigateTo;
 import starter.questions.CreditavailableQuestion;
 import starter.questions.TotalBalanceQuestion;
@@ -37,7 +38,9 @@ public class LoginStepDefinition {
         // Write code here that turns the phrase above into concrete actions
         theActorCalled(actorName).attemptsTo(
                 NavigateTo.theHackatonPage(),
-                Login.withCredentials("Pepito","123456")
+                LoginBuilderTask.with()
+                        .username("pepito").password("123456").rememberMe(false)
+                //,Login.withCredentials("Pepito","123456")
         );
     }
     @Then("he should have access to manage his account")
