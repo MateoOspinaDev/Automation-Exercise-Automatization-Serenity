@@ -4,12 +4,19 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import jdk.javadoc.internal.doclets.toolkit.OverviewElement;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import starter.navigation.NavigateTo;
+import starter.questions.CreditavailableQuestion;
+import starter.questions.TotalBalanceQuestion;
 import starter.tasks.Login;
 
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.Matchers.equalTo;
+import static starter.ui.DashBoardPage.TOTAL_BALANCE;
 
 public class LoginStepDefinition {
 
@@ -35,7 +42,10 @@ public class LoginStepDefinition {
     }
     @Then("he should have access to manage his account")
     public void he_should_have_access_to_manage_his_account() {
-        // Write code here that turns the phrase above into concrete actions
+        theActorInTheSpotlight().should(
+                seeThat("The displayed credit available", CreditavailableQuestion.value(),equalTo("$17,800")),
+                seeThat("The displayed credit balance", TotalBalanceQuestion.value(),equalTo("$350%7")
+        ));
     }
 
 }
