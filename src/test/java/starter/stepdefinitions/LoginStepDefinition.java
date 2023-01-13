@@ -4,20 +4,17 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import jdk.javadoc.internal.doclets.toolkit.OverviewElement;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import starter.builders.LoginBuilderTask;
 import starter.navigation.NavigateTo;
 import starter.questions.CreditavailableQuestion;
 import starter.questions.TotalBalanceQuestion;
-import starter.tasks.Login;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.Matchers.equalTo;
-import static starter.ui.DashBoardPage.TOTAL_BALANCE;
 
 public class LoginStepDefinition {
 
