@@ -9,12 +9,15 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import starter.builders.LoginBuilderTask;
 import starter.navigation.NavigateTo;
 import starter.questions.CreditavailableQuestion;
+import starter.questions.LoggedUserQuestion;
 import starter.questions.TotalBalanceQuestion;
+import starter.tasks.Login;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class LoginStepDefinition {
 
@@ -34,18 +37,18 @@ public class LoginStepDefinition {
     public void he_sends_their_valid_credentials() {
         // Write code here that turns the phrase above into concrete actions
         theActorCalled(actorName).attemptsTo(
-                NavigateTo.theHackatonPage(),
-                LoginBuilderTask.with()
-                        .username("pepito").password("123456").rememberMe(false)
-                //,Login.withCredentials("Pepito","123456")
+                NavigateTo.theAutomationExercisePage(),
+                //LoginBuilderTask.with()
+                        //.username("jhon@gmail.com").password("123456").rememberMe(false)
+                Login.withCredentials("jhon@gmail.com","123456")
         );
     }
-    @Then("he should have access to manage his account")
+    @Then("He can see that his login was successful")
     public void he_should_have_access_to_manage_his_account() {
         theActorInTheSpotlight().should(
-                seeThat("The displayed credit available", CreditavailableQuestion.value(),equalTo("$17,800")),
-                seeThat("The displayed credit balance", TotalBalanceQuestion.value(),equalTo("$350%7")
-        ));
+                seeThat("The login was successful", LoggedUserQuestion.theLoginIsSuccessful(),is(true))
+                //seeThat("The displayed credit balance", TotalBalanceQuestion.value(),equalTo("$350%7")
+        );
     }
 
 }
