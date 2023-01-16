@@ -1,5 +1,6 @@
 trigger:
 - master
+- fix/castToJunit5
 
 pool:
   name: Default
