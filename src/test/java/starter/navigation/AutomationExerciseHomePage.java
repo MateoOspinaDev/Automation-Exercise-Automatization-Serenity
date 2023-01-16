@@ -3,5 +3,5 @@ package starter.navigation;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.DefaultUrl;
 
-@DefaultUrl("https://demo.applitools.com")
-public class ApplitoolsHomePage extends PageObject {}
+@DefaultUrl("https://automationexercise.com")
+public class AutomationExerciseHomePage extends PageObject {}
