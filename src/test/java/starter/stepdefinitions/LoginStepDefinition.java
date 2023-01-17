@@ -6,17 +6,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
-import starter.builders.LoginBuilderTask;
 import starter.navigation.NavigateTo;
-import starter.questions.CreditavailableQuestion;
 import starter.questions.LoggedUserQuestion;
-import starter.questions.TotalBalanceQuestion;
 import starter.tasks.Login;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
 public class LoginStepDefinition {

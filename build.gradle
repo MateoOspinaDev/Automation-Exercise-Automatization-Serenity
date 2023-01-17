@@ -3,6 +3,7 @@ plugins {
     id 'java'
     id 'eclipse'
     id 'idea'
+    id "io.freefair.lombok" version "6.6.1"
 }
 
 defaultTasks 'clean','test','aggregate'
