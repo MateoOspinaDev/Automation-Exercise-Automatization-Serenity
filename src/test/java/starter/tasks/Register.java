@@ -27,7 +27,6 @@ public class Register implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        Purchaser purchaser = actor.recall(Purchaser.USER_INFORMATION);
         actor.attemptsTo(
                 WaitUntil.the(LoginPage.SIGNUP_LOGIN_OPTION, isVisible()),
                 Enter.theValue(purchaser.getName()).into(LoginPage.NAME_FIELD_NEW_USER),

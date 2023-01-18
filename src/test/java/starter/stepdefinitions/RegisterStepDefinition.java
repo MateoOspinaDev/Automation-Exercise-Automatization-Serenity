@@ -3,17 +3,27 @@ package starter.stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import starter.model.Purchaser;
+import starter.model.PurchaserFactory;
+import starter.tasks.Register;
+
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class RegisterStepDefinition {
 
-    @Given("Pepito is a person with the correct data to register")
-    public void pepito_is_a_person_with_the_correct_data_to_register() {
-        // Write code here that turns the phrase above into concrete actions
+
+    @Given("^(.*) is a person with the correct data to register$")
+    public void pepito_is_a_person_with_the_correct_data_to_register(String actorName) {
+        Purchaser aPurchaser = PurchaserFactory.createByName(actorName);
+        theActorCalled(aPurchaser.getName());
     }
 
     @Given("he fill the first form")
     public void pepito_fill_the_first_form() {
-        // Write code here that turns the phrase above into concrete actions
+        theActorInTheSpotlight().attemptsTo(
+                Register.withDates(aP)
+        );
     }
 
     @Given("he fill the second form")
