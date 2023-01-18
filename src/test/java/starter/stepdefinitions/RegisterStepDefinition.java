@@ -22,7 +22,6 @@ public class RegisterStepDefinition {
     @Given("he fill the first form")
     public void pepito_fill_the_first_form() {
         theActorInTheSpotlight().attemptsTo(
-                Register.withDates(aP)
         );
     }
 
